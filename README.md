@@ -283,5 +283,99 @@ btn.addEventListener("click", () => {
 });
 
 </script>
+
+<style>
+
+.music-btn{
+position:fixed;
+top:20px;
+right:20px;
+background:#ff4f9d;
+color:#fff;
+padding:12px 18px;
+border-radius:50px;
+cursor:pointer;
+z-index:9999;
+box-shadow:0 10px 20px rgba(0,0,0,.2);
+}
+
+.sparkle{
+position:fixed;
+font-size:18px;
+pointer-events:none;
+animation:shine 4s linear forwards;
+}
+
+@keyframes shine{
+
+0%{
+opacity:0;
+transform:translateY(0) scale(.5);
+}
+
+30%{
+opacity:1;
+}
+
+100%{
+opacity:0;
+transform:translateY(-120vh) scale(1.5);
+}
+
+}
+
+</style>
+
+<div class="music-btn" onclick="toggleMusic()">
+🎵 Music
+</div>
+
+<audio id="music" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+function toggleMusic(){
+
+let m=document.getElementById("music");
+
+if(m.paused){
+
+m.play();
+
+}else{
+
+m.pause();
+
+}
+
+}
+
+function sparkle(){
+
+let s=document.createElement("div");
+
+s.className="sparkle";
+
+s.innerHTML="✨";
+
+s.style.left=Math.random()*100+"vw";
+
+s.style.bottom="-20px";
+
+document.body.appendChild(s);
+
+setTimeout(()=>{
+
+s.remove();
+
+},4000);
+
+}
+
+setInterval(sparkle,350);
+
+</script>
 </body>
 </html>
