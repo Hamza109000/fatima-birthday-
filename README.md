@@ -214,6 +214,74 @@ With lots of love ❤️
 Made with ❤️ by Mahi
 
 </footer>
+<script>
 
+// Floating Hearts
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.innerHTML = "💖";
+  heart.style.position = "fixed";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.top = "100vh";
+  heart.style.fontSize = (20 + Math.random() * 20) + "px";
+  heart.style.zIndex = "9999";
+  heart.style.pointerEvents = "none";
+  heart.style.transition = "transform 6s linear, opacity 6s linear";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.style.transform = `translateY(-120vh) rotate(${Math.random()*360}deg)`;
+    heart.style.opacity = "0";
+  }, 100);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}
+
+setInterval(createHeart, 500);
+
+// Surprise Button
+const btn = document.querySelector("button");
+
+btn.addEventListener("click", () => {
+
+  for(let i=0;i<80;i++){
+
+    const confetti=document.createElement("div");
+
+    confetti.innerHTML="🎉";
+
+    confetti.style.position="fixed";
+
+    confetti.style.left=Math.random()*100+"vw";
+
+    confetti.style.top="-20px";
+
+    confetti.style.fontSize="24px";
+
+    confetti.style.transition="4s linear";
+
+    document.body.appendChild(confetti);
+
+    setTimeout(()=>{
+
+      confetti.style.top="110vh";
+
+      confetti.style.transform="rotate(720deg)";
+
+    },100);
+
+    setTimeout(()=>{
+
+      confetti.remove();
+
+    },4000);
+
+  }
+
+});
+
+</script>
 </body>
 </html>
